@@ -11,7 +11,7 @@
 <body>
    <div class="calculator">
 
-      <input type="text" class="display" readonly>
+      <input type="text" class="display" value="Hello" readonly>
 
       <div class="btn-group">
 
@@ -42,6 +42,13 @@
       </div>
 
    </div>
+
+   <script>
+      let resultDisplayNum = ''
+      const display = document.querySelector('.display');
+      display.value = resultDisplayNum;
+      console.dir(display);
+   </script>
 
 </body>
 
