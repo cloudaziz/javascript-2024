@@ -15,7 +15,10 @@
 
       <div class="btn-group">
 
-         <button class="btn" onclick="alert(`I am 1`)">1</button>
+         <button class="btn" onclick="
+            resultDisplayNum = resultDisplayNum +1;
+            console.log(resultDisplayNum);
+            ">1</button>
 
          <button class="btn" onclick="alert(`I am 2`)">2</button>
 
@@ -47,7 +50,7 @@
       let resultDisplayNum = ''
       const display = document.querySelector('.display');
       display.value = resultDisplayNum;
-      console.dir(display);
+      
    </script>
 
 </body>
