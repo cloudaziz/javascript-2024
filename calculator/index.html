@@ -11,14 +11,13 @@
 <body>
    <div class="calculator">
 
-      <input type="text" class="display" value="Hello" readonly>
+      <input type="text" class="display" readonly>
 
       <div class="btn-group">
 
          <button class="btn" onclick="
             resultDisplayNum = resultDisplayNum + '1';
             display.value = resultDisplayNum;
-            // console.log(resultDisplayNum);
             ">1</button>
 
          <button class="btn" onclick="
@@ -66,11 +65,14 @@
             display.value = resultDisplayNum;
          ">/</button>
 
-         <button class="btn"  onclick="
+         <button class="btn" onclick="
           display.value = '';
+          resultDisplayNum= ''
          ">C</button>
 
-         <button class="btn" onclick="alert(`I am Equal`)">=</button>
+         <button class="btn" onclick="
+         display.value = eval(resultDisplayNum);
+         ">=</button>
 
       </div>
 
@@ -80,7 +82,7 @@
       let resultDisplayNum = ''
       const display = document.querySelector('.display');
       display.value = resultDisplayNum;
-      
+
    </script>
 
 </body>
