@@ -66,12 +66,14 @@
          ">/</button>
 
          <button class="btn" onclick="
-          display.value = '';
-          resultDisplayNum= ''
+          resultDisplayNum = '';
+            display.value = resultDisplayNum;
          ">C</button>
 
          <button class="btn" onclick="
-         display.value = eval(resultDisplayNum);
+         let total = eval(resultDisplayNum)
+         resultDisplayNum = total;
+            display.value = resultDisplayNum;
          ">=</button>
 
       </div>
