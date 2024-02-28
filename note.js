@@ -38,3 +38,8 @@ myp.style.setProperty('--bgColor', 'yellow');
 let createP = document.createElement('p');
 createP.innerText = 'How';
 document.querySelector('.mydiv').before(createP);
+
+// slider.style.transform = `translateX(${-sliderItemWidth * currentIndex}px)`;
+
+// the closest ancestor with the id of "div-02"
+console.log(el.closest('#div-02')); // <div id="div-02">
