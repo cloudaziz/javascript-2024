@@ -10,3 +10,11 @@ const lastClone = sliderItems[sliderItems.length - 1].cloneNode(true);
 
 slider.append(firstClone);
 slider.prepend(lastClone);
+
+let currentIndex = 1;
+nextBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+  currentIndex = currentIndex + 1;
+  slider.style.setProperty('--item-index', currentIndex);
+  slider.style.transition = '.7s';
+});
