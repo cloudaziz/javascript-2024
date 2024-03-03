@@ -43,3 +43,6 @@ document.querySelector('.mydiv').before(createP);
 
 // the closest ancestor with the id of "div-02"
 console.log(el.closest('#div-02')); // <div id="div-02">
+
+// adding only one click
+item.addEventListener('click', () => {}, { once: true });
