@@ -44,3 +44,19 @@ nextBtn.addEventListener('click', (event) => {
   slider.style.setProperty('--item-index', currentIndex);
   slider.style.transition = '.7s';
 });
+
+// add transition effect
+slider.addEventListener('transitionend', (event) => {
+  event.preventDefault();
+  sliderItems = slider.querySelectorAll('li');
+  if (currentIndex === sliderItems.length - 1) {
+    slider.style.transition = 'none';
+    currentIndex = 1;
+    slider.style.setProperty('--item-index', currentIndex);
+  }
+  if (currentIndex === 0) {
+    slider.style.transition = 'none';
+    currentIndex = sliderItems.length - 2;
+    slider.style.setProperty('--item-index', currentIndex);
+  }
+});
