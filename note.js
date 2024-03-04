@@ -46,3 +46,11 @@ console.log(el.closest('#div-02')); // <div id="div-02">
 
 // adding only one click
 item.addEventListener('click', () => {}, { once: true });
+
+// another way to set only one click
+let hasNotClicked = true;
+item.addEventListener('click', () => {
+  if (hasNotClicked) {
+    hasNotClicked = false;
+  }
+});

@@ -22,13 +22,14 @@
   height: 100%;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 100%;
+  grid-auto-columns: calc(100% / 1);
   transform: translateX(calc(-100% * var(--item-index)));
 
   & li {
     border: 1px solid green;
     display: grid;
     place-items: center;
+    background-color: var(--bg-color);
   }
 }
 
