@@ -31,3 +31,13 @@ for (let index = 1; index <= showItem; index++) {
   lastClone.classList.remove('active');
   slider.prepend(lastClone);
 }
+// Getting update sliderItems after firstClone and lastClone
+sliderItems = slider.querySelectorAll('li');
+
+// To showing index 1 for current view
+sliderItems.forEach((item, indx) => {
+  if (item.classList.contains('active')) {
+    currentIndex = indx;
+    slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+  }
+});
