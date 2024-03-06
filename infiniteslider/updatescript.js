@@ -1,43 +1,163 @@
 const sliderWrapper = document.querySelector('.slider-wrapper'); // container
-const slider = sliderWrapper.querySelector('.slider'); //  slide
-let sliderItems = slider.querySelectorAll('li'); // slider item
-let sliderItemWidth = sliderItems[0].offsetWidth; // single Item width
 
-const nextBtn = document.querySelector('.right');
-const prevBtn = document.querySelector('.left');
-// To getting --show-item value & convert
 let showItem = parseInt(
   window.getComputedStyle(sliderWrapper).getPropertyValue('--show-item'),
   10
 );
-// To getting --item-slide value & convert
+
 let itemsPerSlide = parseInt(
-  window.getComputedStyle(sliderWrapper).getPropertyValue('--item-slide'),
+  window.getComputedStyle(sliderWrapper).getPropertyValue('--slide-item'),
   10
 );
 
-let currentIndex = 1;
-// Create cloneNode --show-item value wise (firstChild to lastChild)
+if (showItem < itemsPerSlide) {
+  itemsPerSlide = showItem;
+}
+
+const slider = sliderWrapper.querySelector('.slider'); //  slide
+const sliderItems = slider.querySelectorAll('li'); // slider item
+const sliderItemWidth = sliderItems[0].offsetWidth; // single Item width
+const totalItems = sliderItems.length;
+const lastItemsIndex = sliderItems.length - 1;
+
+const nextBtn = document.querySelector('.right');
+const prevBtn = document.querySelector('.left');
+
+let currentIndex = 0;
+
 for (let index = 0; index < showItem; index++) {
   const firstClone = sliderItems[index].cloneNode(true);
   firstClone.classList.add('clone');
   firstClone.classList.remove('active');
   slider.append(firstClone);
 }
-// Create cloneNode --show-item value wise (lastChild to firstChild)
-for (let index = 1; index <= showItem; index++) {
-  const lastClone = sliderItems[sliderItems.length - index].cloneNode(true);
+
+for (let index = 0; index < showItem; index++) {
+  const lastClone = sliderItems[lastItemsIndex - index].cloneNode(true);
   lastClone.classList.add('clone');
   lastClone.classList.remove('active');
   slider.prepend(lastClone);
 }
-// Getting update sliderItems after firstClone and lastClone
-sliderItems = slider.querySelectorAll('li');
 
-// To showing index 1 for current view
-sliderItems.forEach((item, indx) => {
+const sliderItemsWithCloned = slider.querySelectorAll('li');
+
+sliderItemsWithCloned.forEach((item, indx) => {
   if (item.classList.contains('active')) {
     currentIndex = indx;
     slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
   }
 });
+
+sliderItemsWithCloned[currentIndex].classList.add('current');
+
+for (let i = 0; i < showItem; i++) {
+  const x = i + currentIndex;
+
+  sliderItemsWithCloned[x].classList.add('active');
+}
+
+// Prev
+prevBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (slider.classList.contains('animating')) {
+    return;
+  }
+
+  const remaining = currentIndex - itemsPerSlide;
+  let s = itemsPerSlide < remaining ? itemsPerSlide : remaining;
+
+  if (remaining === 0) {
+    s = itemsPerSlide;
+  }
+  // for stoping infinit scroll
+
+  if (!sliderWrapper.classList.contains('infinite')) {
+    if (currentIndex - s - showItem < 0) {
+      return;
+    }
+  }
+
+  currentIndex -= s;
+
+  slider.classList.add('animating');
+  slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+});
+
+// Next
+nextBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  if (slider.classList.contains('animating')) {
+    return;
+  }
+
+  const remaining = totalItems - currentIndex;
+
+  let s = itemsPerSlide < remaining ? itemsPerSlide : remaining;
+
+  if (remaining === 0) {
+    s = itemsPerSlide;
+  }
+
+  //console.log(currentIndex + s, totalItems);
+  // for stoping infinit scroll
+  if (!sliderWrapper.classList.contains('infinite')) {
+    if (currentIndex + s > totalItems) {
+      return;
+    }
+  }
+
+  currentIndex += s;
+
+  slider.classList.add('animating');
+  slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+});
+
+// before slide
+slider.addEventListener('transitionstart', (event) => {
+  sliderItemsWithCloned.forEach((item) => {
+    item.classList.remove('active');
+    item.classList.remove('current');
+  });
+});
+
+// after slide
+slider.addEventListener('transitionend', (event) => {
+  slider.classList.remove('animating');
+
+  // fix prev
+
+  if (currentIndex === 0) {
+    currentIndex = sliderItems.length;
+    slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+  }
+
+  // fix next
+  if (currentIndex > sliderItems.length) {
+    currentIndex = currentIndex - sliderItems.length;
+    slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+  }
+
+  sliderItemsWithCloned[currentIndex].classList.add('current');
+  for (let i = 0; i < showItem; i++) {
+    const x = i + currentIndex;
+
+    sliderItemsWithCloned[x].classList.add('active');
+  }
+});
+
+// function goto(index, isCenter = true) {
+//   if (index < 1) {
+//     return;
+//   }
+
+//   if (index > totalItems) {
+//     return;
+//   }
+
+//   slider.classList.add('animating');
+//   const centerIndex = isCenter ? 1 : 0;
+//   currentIndex = index + showItem - 1 - centerIndex;
+//   slider.style.transform = `translateX(-${sliderItemWidth * currentIndex}px)`;
+// }
