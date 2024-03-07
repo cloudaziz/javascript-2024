@@ -13,7 +13,7 @@
 }
 
 .slider-wrapper {
-  --slide-item: 1;
+  --slide-item: 2;
   --show-item: 3;
   border: 2px solid red;
   width: 100%;
