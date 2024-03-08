@@ -48,13 +48,20 @@
       let resultDisplayNum = '';
       display.value = resultDisplayNum
 
-      let numBtn = document.querySelectorAll('.numBtn');
+      const numBtn = document.querySelectorAll('.numBtn');
+      const clearBtn = document.querySelector('.clearBtn')
 
       numBtn.forEach(num => {
          num.addEventListener('click', () => {
             resultDisplayNum += num.innerText
             display.value = resultDisplayNum;
          })
+      })
+
+      //2.
+      clearBtn.addEventListener('click', () => {
+         resultDisplayNum = ''
+         display.value = resultDisplayNum;
       })
 
 
