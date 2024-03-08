@@ -15,66 +15,29 @@
 
       <div class="btn-group">
 
-         <button class="btn" onclick="
-            resultDisplayNum = resultDisplayNum + '1';
-            display.value = resultDisplayNum;
-            ">1</button>
+         <button class="btn">1</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '2';
-            display.value = resultDisplayNum;
-         ">2</button>
+         <button class="btn">2</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '3';
-            display.value = resultDisplayNum;
-         ">3</button>
+         <button class="btn">3</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '4';
-            display.value = resultDisplayNum;
-         ">4</button>
+         <button class="btn">4</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '5';
-            display.value = resultDisplayNum;
-         ">5</button>
+         <button class="btn">5</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '6';
-            display.value = resultDisplayNum;
-         ">6</button>
+         <button class="btn">6</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '+';
-            display.value = resultDisplayNum;
-         ">+</button>
+         <button class="btn">+</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '-';
-            display.value = resultDisplayNum;
-         ">-</button>
+         <button class="btn">-</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '*';
-            display.value = resultDisplayNum;
-         ">*</button>
+         <button class="btn">*</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = resultDisplayNum + '/';
-            display.value = resultDisplayNum;
-         ">/</button>
+         <button class="btn">/</button>
 
-         <button class="btn" onclick="
-          resultDisplayNum = '';
-            display.value = resultDisplayNum;
-         ">C</button>
+         <button class="btn">C</button>
 
-         <button class="btn" onclick="
-         let total = eval(resultDisplayNum)
-         resultDisplayNum = total;
-            display.value = resultDisplayNum;
-         ">=</button>
+         <button class="btn">=</button>
 
       </div>
 
@@ -82,8 +45,14 @@
 
    <script>
       let resultDisplayNum = ''
-      const display = document.querySelector('.display');
-      display.value = resultDisplayNum;
+      const display = document.querySelector('.display').value = resultDisplayNum;
+
+      // resultDisplayNum = resultDisplayNum + '1';
+      // display.value = resultDisplayNum;
+
+      // let total = eval(resultDisplayNum)
+      // resultDisplayNum = total;
+      // display.value = resultDisplayNum;
 
    </script>
 

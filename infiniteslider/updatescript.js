@@ -50,12 +50,10 @@ sliderItemsWithCloned.forEach((item, indx) => {
 
 sliderItemsWithCloned[currentIndex].classList.add('current');
 
-/** start */
 for (let i = 0; i < showItem; i++) {
   const x = i + currentIndex;
   sliderItemsWithCloned[x].classList.add('active');
 }
-/** end */
 
 // Prev
 prevBtn.addEventListener('click', (event) => {
