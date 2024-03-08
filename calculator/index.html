@@ -44,11 +44,19 @@
    </div>
 
    <script>
-      let resultDisplayNum = ''
-      const display = document.querySelector('.display').value = resultDisplayNum;
+      let display = document.querySelector('.display');
+      let resultDisplayNum = '';
+      display.value = resultDisplayNum
 
-      // resultDisplayNum = resultDisplayNum + '1';
-      // display.value = resultDisplayNum;
+      let numBtn = document.querySelectorAll('.numBtn');
+
+      numBtn.forEach(num => {
+         num.addEventListener('click', () => {
+            resultDisplayNum += num.innerText
+            display.value = resultDisplayNum;
+         })
+      })
+
 
       // let total = eval(resultDisplayNum)
       // resultDisplayNum = total;
