@@ -49,7 +49,8 @@
       display.value = resultDisplayNum
 
       const numBtn = document.querySelectorAll('.numBtn');
-      const clearBtn = document.querySelector('.clearBtn')
+      const clearBtn = document.querySelector('.clearBtn');
+      const mathBtn = document.querySelectorAll('.mathBtn');
 
       numBtn.forEach(num => {
          num.addEventListener('click', () => {
@@ -62,6 +63,14 @@
       clearBtn.addEventListener('click', () => {
          resultDisplayNum = ''
          display.value = resultDisplayNum;
+      })
+
+      //3.
+      mathBtn.forEach((item) => {
+         item.addEventListener('click', () => {
+            resultDisplayNum += item.innerText
+            display.value = resultDisplayNum;
+         })
       })
 
 
