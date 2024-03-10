@@ -69,11 +69,19 @@
       //3.
       mathBtn.forEach((item) => {
          item.addEventListener('click', () => {
+            //5.
+            let lastCharacter = display.value.charAt(display.value.length - 1)
+
+            let operators = ['-', '+', '*', '/'];
+            if (operators.includes(lastCharacter)) {
+               let afterRemoveDisplay = display.value.slice(0, -1)
+               resultDisplayNum = afterRemoveDisplay;
+            }
             resultDisplayNum += item.innerText
             display.value = resultDisplayNum;
          })
       })
-
+      //4.
       equalBtn.addEventListener('click', () => {
          let total = eval(resultDisplayNum)
          resultDisplayNum = total;
