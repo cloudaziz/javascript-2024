@@ -51,6 +51,7 @@
       const numBtn = document.querySelectorAll('.numBtn');
       const clearBtn = document.querySelector('.clearBtn');
       const mathBtn = document.querySelectorAll('.mathBtn');
+      const equalBtn = document.querySelector('.equalBtn')
 
       numBtn.forEach(num => {
          num.addEventListener('click', () => {
@@ -73,10 +74,15 @@
          })
       })
 
+      equalBtn.addEventListener('click', () => {
+         let total = eval(resultDisplayNum)
+         resultDisplayNum = total;
+         display.value = resultDisplayNum;
+         resultDisplayNum = ''
+      })
 
-      // let total = eval(resultDisplayNum)
-      // resultDisplayNum = total;
-      // display.value = resultDisplayNum;
+
+
 
    </script>
 
