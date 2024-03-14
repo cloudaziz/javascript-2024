@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+@keyframes infinitslide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100.7%);
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+.logos {
+  display: flex;
+  gap: 20px;
+}
+.logos-slide {
+  height: 100px;
+  display: flex;
+  gap: 20px;
+
+  animation: infinitslide 10s linear infinite;
+
+  & li {
+    width: 400px;
+    flex-shrink: 0;
+    border: 1px solid #ccc;
+    display: grid;
+    place-items: center;
+  }
+}

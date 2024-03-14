@@ -21,10 +21,6 @@
   height: 100%;
 
   /* overflow-x: hidden; */
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 
 .animating {
@@ -50,7 +46,7 @@
 
   & li {
     border: 2px solid green;
-    scroll-snap-align: start;
+    /* scroll-snap-align: start; */
 
     display: grid;
     place-items: center;

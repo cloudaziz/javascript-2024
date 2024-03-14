@@ -59,19 +59,19 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    border: 14px solid transparent;
+    border: 10px solid transparent;
     /* background-color: aqua; */
     cursor: pointer;
     user-select: none;
 
     &.bottom {
-      border-top-color: red;
+      border-top-color: blue;
       border-bottom-width: 0;
       bottom: 0;
     }
 
     &.top {
-      border-bottom-color: red;
+      border-bottom-color: blue;
       border-top-width: 0;
       top: 0;
     }
