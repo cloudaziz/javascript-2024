@@ -17,8 +17,10 @@ ul {
 
 .container {
   width: 100%;
-  margin: 20px auto;
-  overflow: hidden;
+  margin-inline: auto;
+  background-color: black;
+  padding: 20px 0;
+  /* overflow: hidden; */
 }
 .logos {
   display: flex;
@@ -29,13 +31,18 @@ ul {
   display: flex;
   gap: 20px;
 
-  animation: infinitslide 10s linear infinite;
+  animation: infinitslide 14s linear infinite;
 
   & li {
     width: 400px;
     flex-shrink: 0;
-    border: 1px solid #ccc;
+    border: 2px solid #fff;
     display: grid;
     place-items: center;
+    color: #fff;
+    font-size: 24px;
   }
+}
+.logos:hover .logos-slide {
+  animation-play-state: paused;
 }
