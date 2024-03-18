@@ -20,12 +20,41 @@ ul {
   margin-inline: auto;
   background-color: black;
   padding: 20px 0;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .logos {
   display: flex;
   gap: 20px;
+  position: relative;
 }
+.logos::before,
+.logos::after {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 150px;
+  height: 100%;
+  z-index: 1;
+}
+.logos::before {
+  left: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.logos::after {
+  right: 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 1) 90%
+  );
+}
+
 .logos-slide {
   height: 100px;
   display: flex;
