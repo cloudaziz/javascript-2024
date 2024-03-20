@@ -10,7 +10,24 @@
 <body>
 
    <h1>Number Game</h1>
-   <button>Bat</button>
+   <button onclick="
+   console.log('You have chosen Bat');
+   // generate random number between 0 and 3
+   let randomNumber = Math.random() * 3;
+
+   if(randomNumber > 0 && randomNumber <= 1) {
+      let computerChoice = 'Bat'
+      console.log('Computer Choice Bat');
+   } else if (randomNumber > 1 && randomNumber <= 2){
+      let computerChoice =  'Ball';
+      console.log('Computer Choice Ball');
+
+   } else {
+      let computerChoice = 'Stamp';
+      console.log('Computer Choice Stamp');
+
+   }
+      ">Bat</button>
    <button>Ball</button>
    <button>Stump</button>
    <p>Reading End Time 4:35</p>
