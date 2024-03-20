@@ -54,3 +54,10 @@ item.addEventListener('click', () => {
     hasNotClicked = false;
   }
 });
+
+// Change color with function
+const grandparent = document.getElementById('grandparent-id');
+function changeColor(element) {
+  element.style.backgroundColor = '#333';
+}
+changeColor(grandparent);
