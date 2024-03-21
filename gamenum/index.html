@@ -11,7 +11,6 @@
 
    <h1>Number Game</h1>
    <button onclick="
-   console.log(`You'r choice Bat`);
    // generate random number between 0 and 3
    let randomNumber = Math.random() * 3;
    let computerChoice;
@@ -23,7 +22,17 @@
    } else {
       computerChoice = 'Stamp';
    }
-   console.log(`Computer Choice ${computerChoice}`);
+
+   let resultMsg
+
+   if(computerChoice === 'Bat'){
+      resultMsg = `It's a Tie.`;
+   } else if(computerChoice === 'Ball'){
+      resultMsg = `User Won.`;
+   }else if (computerChoice === 'Stamp'){
+       resultMsg = `Computer Won.`;
+   }
+   console.log(`You choice Bat. Computer Choice ${computerChoice}. ${resultMsg}`);
       ">Bat</button>
    <button>Ball</button>
    <button>Stump</button>
