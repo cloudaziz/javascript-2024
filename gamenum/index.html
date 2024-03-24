@@ -20,7 +20,7 @@
    } else if (randomNumber > 1 && randomNumber <= 2){
       computerChoice =  'Ball';
    } else {
-      computerChoice = 'Stamp';
+      computerChoice = 'Stump';
    }
 
    let resultMsg
@@ -29,14 +29,14 @@
       resultMsg = `It's a Tie.`;
    } else if(computerChoice === 'Ball'){
       resultMsg = `User Won.`;
-   }else if (computerChoice === 'Stamp'){
+   }else if (computerChoice === 'Stump'){
        resultMsg = `Computer Won.`;
    }
-   console.log(`You choice Bat. Computer Choice ${computerChoice}. ${resultMsg}`);
+   console.log(`You choice Bat. Computer Choice is ${computerChoice}. ${resultMsg}`);
       ">Bat</button>
    <button>Ball</button>
    <button>Stump</button>
-   <p>Reading End Time 4:35</p>
+   <p>Bat -> Ball, Ball -> Stump, Stump -> Bat. Reading End Time 5:05</p>
 
 </body>
 
