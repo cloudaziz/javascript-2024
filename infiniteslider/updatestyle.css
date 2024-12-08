@@ -14,7 +14,7 @@
 }
 
 .slider-wrapper {
-  --slide-item: 2;
+  --slide-item: 1;
   --show-item: 3;
   border: 2px solid red;
   width: 100%;
@@ -45,7 +45,7 @@
   /* transition: 0.7s; */
 
   & li {
-    border: 2px solid green;
+    border: 0.5px solid green;
     /* scroll-snap-align: start; */
 
     display: grid;
@@ -103,4 +103,8 @@
     --slide-item: 1;
     --show-item: 1;
   }
+}
+
+.active.current {
+  border: 2px solid black;
 }
